@@ -1,26 +1,194 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@plugin "@tailwindcss/typography";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* :root {
+  --background: #fbf9ea;
+  --title: #171717;
+  --signatureOrange: #F58840;
+  --text: #4a5565;
+  
+} */
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+    /* Brand */
+  --color-primary: #ff6321;
+  --color-accent: #ff8a50;
+
+  /* Background */
+  --bg-main: #f8f6f4;
+  --bg-secondary: #f1eeea;
+  --bg-tertiary: #e7e3de;
+
+  /* Gradients */
+  --gradient-main: linear-gradient(135deg, #f8f6f4 0%, #f1eeea 40%, #f8f6f4 100%);
+  --gradient-accent: linear-gradient(135deg, #ff6321 0%, #ff8a50 100%);
+
+  /* Text */
+  --text-primary: #0f0f14;
+  --text-secondary: #5c5646;
+  --text-muted: #8b8577;
+  --sub-heading: #6f6a5c;
+  --inner-text: #ffffff;
+
+  /* UI */
+  --border-color: #dedad4;
+  --border-light: rgba(0, 0, 0, 0.05);
+
+  /* Depth */
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 15px 40px rgba(0, 0, 0, 0.08);
+
+  /* States */
+  --button-hover: #e85a3d;
+
+
+    /* Arc Process Section */
+    --arc-stroke: #ECEAE8;
+    --arc-fill-top: #EEECE9;
+    --arc-fill-bottom: #F3F3F3;
+    --step-inactive-bg: #FFFFFF;
+    --step-inactive-text: #9CA3AF;
+
+  }
+
+[data-theme="dark"] {
+
+  /* brand */
+  --color-primary: #6366F1;
+  --color-accent: #FF8C42;
+
+  /* backgrounds */
+  --bg-main: #0B0F19;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1F2937;
+
+  /* text */
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+
+  /* borders */
+  --border-color: #374151;
+
+
+
+}
+
+
+html {
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--bg-main);
+  color: var(--text-primary);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.stagger-item {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.stagger-item.show {
+  animation: fadeSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Hide scrollbar - Chrome, Safari */
+.custom-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar - Firefox */
+.custom-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.4s ease forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight 0.4s ease forwards;
+}
+
+/* for ourProjectCards */
+
+@keyframes slideOutLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-120%); }
+}
+
+@keyframes slideOutRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(120%); }
+}
+
+.animate-slide-left {
+  animation: slideOutLeft 0.7s ease-in-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideOutRight 0.7s ease-in-out forwards;
+}
+
+/* for Testimonial */
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.perspective-strong {
+  perspective: 1500px;
+}
+
+
+.calendly-inline-widget {
+  min-width: 100%;
+  height: 100%;
 }
