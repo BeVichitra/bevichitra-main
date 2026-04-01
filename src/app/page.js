@@ -1,5 +1,5 @@
 
-import Hero from "../components/section/home/Hero";
+import Hero from "../components/section/home/HeroTemp";
 import ShowProjectData from "../components/section/home/projects/ShowProjectData";
 import Services from "../components/section/home/services/Services";
 import CollaborativeApproach from "../components/section/home/CollaborativeApproach";
