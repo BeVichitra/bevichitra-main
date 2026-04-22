@@ -206,7 +206,10 @@ export default function Navbar() {
               >
                 <div className="px-6 py-5 flex flex-col gap-5">
                   {NavItems.map((item) => {
-                    const isActive = pathname.startsWith(item.link);
+                    const isActive =
+                      item.link === "/"
+                        ? pathname === "/"
+                        : pathname.startsWith(item.link);
 
                     return (
                       <Link
