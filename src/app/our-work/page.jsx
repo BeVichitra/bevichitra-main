@@ -10,7 +10,7 @@ export const metadata = {
     title: "Our Work | BeVichitra",
     description:
       "We design systems that convert attention into action.",
-    url: "/projects",
+    url: "/our-work",
     images: [
       {
         url: "/images/banner/OurWork.webp",
@@ -21,7 +21,7 @@ export const metadata = {
   },
 };
 
-export default function ProjectsPage() {
+export default function ourWork() {
 
 
   return (

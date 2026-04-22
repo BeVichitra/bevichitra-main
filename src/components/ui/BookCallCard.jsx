@@ -1,12 +1,11 @@
 "use client";
-import { useState } from "react";
 import Button from "./Button";
 import Image from "next/image";
-import ContactPopup from "./ContactPopup";
+import { useContact } from "@/context/ContactContext";
 import Reveal from "./Reveal";
 
 export default function BookCallCard() {
-  const [open, setOpen] = useState(false);
+  const { setOpen } = useContact();
   return (
     <section className="relative py-24 md:py-32">
       <Reveal>
@@ -76,7 +75,7 @@ export default function BookCallCard() {
                   <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(40,108,181,0.05),transparent)] pointer-events-none" />
 
                   {/* HEADER */}
-                  <span className="text-xs text-[var(--color-blue)] uppercase tracking-wider font-[var(--font-heading)]">
+                  <span className="text-xs text-[var(--text-primary)] uppercase tracking-wider font-[var(--font-heading)]">
                     How it works
                   </span>
 
@@ -84,7 +83,7 @@ export default function BookCallCard() {
                   <div className="flex items-center justify-center my-5">
                     <div className="flex items-center gap-2 px-3 py-2 rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-md">
                       <Image
-                        src="/images/logoIcon.png"
+                        src="/images/logoIcon.webp"
                         alt="You"
                         width={32}
                         height={32}
@@ -126,7 +125,6 @@ export default function BookCallCard() {
           </div>
         </div>
       </Reveal>
-      <ContactPopup open={open} setOpen={setOpen} />
     </section>
   );
 }

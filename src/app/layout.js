@@ -4,7 +4,8 @@ import Footer from "../components/layout/Footer";
 import Navbar from "../components/layout/Navbar";
 import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
-
+import { ContactProvider } from "@/context/ContactContext";
+import ContactPopupWrapper from "@/components/ui/ContactPopupWrapper";
 
 const wildborn = localFont({
   src: "../../public/fonts/wildborn-Black.woff2",
@@ -42,13 +43,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${wildborn.variable} ${fredokaLight} ${fredokaBold} ${fredokaRegular}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${wildborn.variable} ${fredokaLight} ${fredokaBold} ${fredokaRegular}`}
+      suppressHydrationWarning
+    >
       <body>
         <ThemeProvider attribute="class">
           <NavProvider>
-            <Navbar />
-            {children}
-            <Footer />
+            <ContactProvider>
+              <Navbar />
+              {children}
+              <ContactPopupWrapper />
+              <Footer />
+            </ContactProvider>
           </NavProvider>
         </ThemeProvider>
       </body>

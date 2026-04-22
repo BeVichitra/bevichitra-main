@@ -1,12 +1,10 @@
-"use client";
 
-import { useState } from "react";
-import ContactFlow from "./ContactFlow";
 import PageHeroCard from "@/components/ui/PageHeroCard";
 import ContactFaq from "@/components/section/contact/ContactFaq";
+import ContactCard from "./ContactCard";
 
 export default function ContactClient() {
-  const [step, setStep] = useState(1);
+  
 
   return (
     <>
@@ -18,7 +16,7 @@ export default function ContactClient() {
         />
     <section className="relative  sm: pt-10 pb-24 px-2 sm:px-6 ">
       
-        <ContactFlow step={step} setStep={setStep} />
+        <ContactCard/>
 
       {/* FAQ BLOCK */}
       <ContactFaq/>

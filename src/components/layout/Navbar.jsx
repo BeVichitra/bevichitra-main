@@ -7,17 +7,17 @@ import { usePathname } from "next/navigation";
 import { NavItems } from "../../data/NavData";
 import { Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import ContactPopup from "../ui/ContactPopup";
-import LogoIcon from "../ui/LogoIcon";
+import Image from "next/image";
 import Button from "../ui/Button";
+import { useContact } from "@/context/ContactContext";
 
 export default function Navbar() {
   const pathname = usePathname();
 
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const { setOpen } = useContact();
 
   const { theme, setTheme } = useTheme();
   const dark = theme === "dark";
@@ -94,22 +94,36 @@ export default function Navbar() {
         >
           {/* TOP BAR */}
           <div className="flex items-center justify-between px-4 sm:px-6 py-3">
-            
             {/* LOGO */}
-            <div className="flex items-center gap-1">
-              <LogoIcon />
+            <Link
+              href="/"
+              className="group flex items-center gap-1 cursor-pointer"
+            >
+              <div className="transition-transform duration-300 group-hover:-rotate-90">
+                <Image
+                  src="/images/logoIcon.webp"
+                  alt="BeVichitra"
+                  width={28}
+                  height={28}
+                  priority
+                />
+              </div>
+
               <h2
                 style={{ fontFamily: "var(--font-logo)" }}
                 className="text-xl tracking-wider"
               >
                 vichitra
               </h2>
-            </div>
+            </Link>
 
             {/* DESKTOP NAV */}
             <div className="hidden md:flex items-center gap-8 text-sm">
               {NavItems.map((item) => {
-                const isActive = pathname.startsWith(item.link);
+                const isActive =
+                  item.link === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(item.link);
 
                 return (
                   <Link
@@ -133,7 +147,6 @@ export default function Navbar() {
 
             {/* RIGHT */}
             <div className="flex items-center gap-2 sm:gap-3">
-
               {/* THEME */}
               <button
                 onClick={toggleTheme}
@@ -226,8 +239,6 @@ export default function Navbar() {
           </AnimatePresence>
         </motion.div>
       </nav>
-
-      <ContactPopup open={open} setOpen={setOpen} />
     </>
   );
 }

@@ -8,10 +8,10 @@ export const metadata = {
     title: "Contact | BeVichitra",
     description:
       "Let’s build something meaningful together.",
-    url: "/contact",
+    url: "/contact-us",
     images: [
       {
-        url: "/images/banner/Contact.webp",
+        url: "/images/banner/contact.webp",
         width: 1200,
         height: 630,
       },

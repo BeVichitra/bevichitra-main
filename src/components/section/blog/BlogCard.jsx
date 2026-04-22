@@ -11,7 +11,7 @@ export default function BlogCard({ blog, index = 0 }) {
 
   return (
     <Reveal delay={index * 0.08}>
-      <Link href={`/blogs/${encodeURIComponent(blog.slug || "")}`}>
+      <Link href={`/blogs/${encodeURIComponent(blog.slug || "")}`} prefetch scroll={true}>
         <article
           className="
             group rounded-xl overflow-hidden

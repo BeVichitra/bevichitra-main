@@ -3,9 +3,14 @@ import DeleteBlogButton from "@/components/admin/DeleteBlogButton";
 import LogOut from "./LogOut";
 
 async function getBlogs() {
-  const res = await fetch("http://localhost:3000/api/blogs", {
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
+  const res = await fetch(`${baseUrl}/api/blogs`, {
     cache: "no-store",
   });
+
+  if (!res.ok) return [];
 
   return res.json();
 }

@@ -2,6 +2,7 @@ import { projectImages } from "../../../data/projectImages";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Button from "../../../components/ui/Button";
+import Link from "next/link";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -17,13 +18,11 @@ export async function generateMetadata({ params }) {
   return {
     title: `${project.title} | BeVichitra Projects`,
     description: project.description,
-    
+
     openGraph: {
       title: project.title,
       description: project.description,
-      images: project.banner
-        ? [{ url: project.banner }]
-        : [],
+      images: project.banner ? [{ url: project.banner }] : [],
       type: "website",
     },
 
@@ -35,7 +34,7 @@ export async function generateMetadata({ params }) {
     },
 
     alternates: {
-      canonical: `https://yourdomain.com/projects/${slug}`,
+      canonical: `https://yourdomain.com/our-work/${slug}`,
     },
   };
 }
@@ -126,11 +125,11 @@ export default async function ProjectPage({ params }) {
           Key Highlights
         </p>
 
-        <div className="mt-4 space-y-3 text-[var(--text-primary)]">
-          <p>• Strong and memorable brand identity</p>
-          <p>• Consistent visual system across all touchpoints</p>
-          <p>• Designed for both digital and physical presence</p>
-        </div>
+        <ul className="mt-4 space-y-3 text-[var(--text-primary)] list-disc pl-5">
+          {project.highlights.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
       </div>
 
       {/* ================= FEATURED WORK ================= */}
@@ -186,7 +185,9 @@ export default async function ProjectPage({ params }) {
             Let’s build something impactful together.
           </p>
 
-          <Button variant="brand">Start your project</Button>
+          <Link href="/contact-us">
+            <Button variant="primary">Start your project</Button>
+          </Link>
         </div>
       </div>
     </div>

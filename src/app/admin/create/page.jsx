@@ -223,7 +223,7 @@ export default function CreateBlog() {
               name="author"
               value={form.author}
               onChange={handleChange}
-              className="border border-[var(--border)] p-3 rounded-lg bg-transparent"
+              className="border border-[var(--border)] p-3 rounded-lg bg-[var(--bg-main)] "
             >
               <option value="gaurav">Gaurav</option>
               <option value="rahul">Rahul</option>

@@ -1,9 +1,13 @@
+"use client"
 import Button from "../../../ui/Button";
 import Reveal from "../../../ui/Reveal";
-
+import ContactPopup from "@/components/ui/ContactPopup";
 import MainBadge from "../../../ui/MainBadge";
+import { useState } from "react";
+import { useContact } from "@/context/ContactContext";
 
 export default function ServiceText() {
+  const { setOpen } = useContact();
   return (
     <div className="flex flex-col gap-5 md:gap-6 max-w-full xl:max-w-md items-center xl:items-start text-center xl:text-left pt-0 sm:pt-20">
       
@@ -29,7 +33,7 @@ Services
 
       {/* CTA - KEEP OUTSIDE REVEAL FOR NOW */}
       <div className="mt-3 flex flex-col sm:flex-row items-center gap-4">
-        <Button variant="primary">
+        <Button variant="primary" onClick={() => setOpen(true)}>
           Start a project
         </Button>
 

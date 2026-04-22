@@ -14,6 +14,20 @@ setStep(1);
 }
 }, [open]);
 
+useEffect(() => {
+  if (open) {
+    // store scroll position
+    const scrollY = window.scrollY;
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "";
+      window.scrollTo(0, scrollY);
+    };
+  }
+}, [open]);
+
 return (
 <AnimatePresence>
 {open && (
@@ -34,7 +48,7 @@ exit={{ opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
       >
-        <div className="relative w-full max-w-lg">
+        <div className="relative w-full max-w-xl">
           {/* CLOSE BUTTON */}
           <button
             onClick={() => setOpen(false)}

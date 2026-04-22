@@ -49,10 +49,7 @@ export default function FAQ() {
 
   return (
     <section className="relative py-24 md:py-32">
-      {/* BACKGROUND DEPTH */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(40,108,181,0.03),transparent)]" />
-      </div>
+      
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
         {/* HEADER */}

@@ -21,8 +21,12 @@ export default function ServicesSection() {
       desc: "Content engineered for engagement and retention.",
     },
     {
-      title: "Social Media Management",
-      desc: "Consistency that builds long-term brand equity.",
+      title: "Video Production",
+      desc: "Creative storytelling through bold, unique visuals",
+    },
+     {
+      title: "Content Writing",
+      desc: "Content that speaks, sells and scales",
     },
   ];
 

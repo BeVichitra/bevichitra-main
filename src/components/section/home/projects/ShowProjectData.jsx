@@ -56,7 +56,7 @@ export default function ShowProjectData() {
               </div>
 
               <div className="mt-8">
-                <Link href="/projects/Fillip-Innovative-Solutions">
+                <Link href="/our-work/Fillip-Innovative-Solutions">
                   <Button variant="secondary">
                     View Full Case Study
                   </Button>

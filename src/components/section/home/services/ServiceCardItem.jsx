@@ -13,6 +13,7 @@ export default function ServiceCardItem({service}) {
         hover:-translate-y-1
         hover:shadow-[var(--shadow-hover)]
         overflow-hidden
+        -z-1
       "
     >
       {/* TOP */}

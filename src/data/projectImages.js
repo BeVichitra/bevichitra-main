@@ -6,7 +6,7 @@ export const projectImages = [
       "Lush Cream is crafted as a luxurious yet playful ice cream brand where every scoop feels like a moment of indulgence. From rich, creamy textures to vibrant, feel-good visuals, the brand blends premium taste with a joyful identity. Designed to stand out both offline and online, Lush Cream transforms everyday treats into memorable experiences, because happiness should be savored, not rushed.",
     client: "Demo",
     services: "full brand package",
-    timeline: "45 days",
+    timeline: "6 weeks",
     cover: "/images/project/lushcream/lushCreamCover.webp",
     banner: "/images/project/lushcream/lushCreamBanner.webp",
     challange:
@@ -14,6 +14,7 @@ export const projectImages = [
 
     solution:
       "We built a brand system that blends rich, appetizing visuals with a vibrant and joyful identity. From color palette to packaging direction, every element was designed to evoke indulgence while maintaining a light, memorable personality. The result is a brand that feels premium, yet instantly approachable and distinctive across digital and physical touchpoints.",
+      highlights:["Crafted a distinctive brand identity that balances premium indulgence with a playful, mass-appeal personality","Designed a vibrant visual system and packaging direction to stand out in a highly competitive, color-heavy market","Built a cohesive brand experience across digital and offline touchpoints to enhance recall and customer engagement"],
     images: [
       "/images/project/lushcream/lushcream_2.webp",
       "/images/project/lushcream/lushcream_3.webp",
@@ -46,7 +47,7 @@ export const projectImages = [
     description:
       "Fillip Innovative Solutions is built to empower modern businesses through intelligent technology and seamless brand experiences. From strategic branding to refined logo and design systems, the focus is on creating identities that communicate clarity, reliability, and innovation. Designed to support growth in digital-first environments, Fillip transforms complex ideas into structured, future-ready brand systems that drive consistency and impact.",
     client: "Tony Paul",
-    services: "Brand Strategy,Logo & Design",
+    services: "Brand Strategy, Logo & Design",
     timeline: "3 weeks",
     cover: "/images/project/fillip/fillipCover.webp",
     banner: "/images/project/fillip/fillipBanner.webp", //banner image
@@ -55,6 +56,7 @@ export const projectImages = [
 
     solution:
       "We developed a structured and minimal brand system focused on clarity and precision. Through refined typography, balanced visual language, and a clean logo system, the brand communicates reliability and innovation without unnecessary complexity. The result is a future-ready identity that aligns with digital-first environments and supports consistent brand communication across all platforms.",
+    highlights:["Built a minimal, clarity-first brand identity that avoids typical “overdesigned” tech aesthetics and focuses on usability","Developed a scalable logo and visual system designed for consistent performance across digital-first platforms","Established a clean and structured design language to communicate technical expertise without overwhelming the audience"],
     images: [
       "/images/project/fillip/1.webp",
       "/images/project/fillip/2.webp",
@@ -70,6 +72,40 @@ export const projectImages = [
       "/images/project/fillip/12.webp",
       "/images/project/fillip/13.webp",
       "/images/project/fillip/14.webp",
+    ],
+  },
+  {
+    slug: "Arya-Engineering-Works",
+    title: "Arya Engineering Works",
+    description:
+      "Arya Engineering Works is built around precision, strength, and reliability in hydraulic engineering. From defining a structured brand strategy to developing a consistent visual and communication system, the focus was on creating a strong industrial identity. Designed to perform across both digital and physical touchpoints, the brand reflects clarity, technical expertise, and long-term operational trust.",
+    client: "Ajay Kumar Trivedi",
+    services: "Brand Strategy, Content Writing, Website Creation, SEO Strategy",
+    timeline: "4 weeks",
+    cover: "/images/project/arya/aryaCover.webp",
+    banner: "/images/project/arya/aryaBanner.webp",
+    challange:
+      "Translating a highly technical hydraulic engineering business into a clear and trustworthy brand identity was difficult. The existing presence lacked structure, consistency, and differentiation, making it hard for potential clients to understand expertise or trust the company for large-scale industrial work.",
+
+    solution:
+      "We built a structured brand system from the ground up — starting with positioning Arya Engineering Works as a precision-driven and reliability-focused industrial partner. A clean visual identity, clear messaging framework, and performance-optimized website were developed to communicate technical expertise in a simple, professional way. The digital presence was aligned with SEO strategy to ensure visibility among relevant industrial audiences.",
+      highlights:["Developed a strong industrial brand identity that communicates precision, durability, and trust","Created a high-performance website optimized for both user clarity and search visibility","Established consistent messaging across all touchpoints to improve credibility and client conversion"],
+    images: [
+      "/images/project/arya/arya1.webp",
+      "/images/project/arya/arya2.webp",
+      "/images/project/arya/arya3.webp",
+      "/images/project/arya/arya4.webp",
+      "/images/project/arya/arya5.webp",
+      "/images/project/arya/arya6.webp",
+      "/images/project/arya/arya7.webp",
+      "/images/project/arya/arya8.webp",
+      "/images/project/arya/arya9.webp",
+      "/images/project/arya/arya10.webp",
+      "/images/project/arya/arya11.webp",
+      "/images/project/arya/arya12.webp",
+      "/images/project/arya/arya13.webp",
+      "/images/project/arya/arya14.webp",
+      "/images/project/arya/arya15.webp",
     ],
   },
 ];

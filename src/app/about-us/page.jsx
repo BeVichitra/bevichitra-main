@@ -26,11 +26,11 @@ export const metadata = {
     title: "About BeVichitra",
     description:
       "We build brands that stand out and scale. Discover our philosophy, team, and approach.",
-    url: "https://bevichitra.com/about", // 🔁 replace this
+    url: "https://bevichitra.com/about-us", // 🔁 replace this
     siteName: "BeVichitra",
     images: [
       {
-        url: "/og-image.png", // 🔁 add your OG image
+        url: "/images/banner/about.webp", // 🔁 add your OG image
         width: 1200,
         height: 630,
         alt: "BeVichitra",

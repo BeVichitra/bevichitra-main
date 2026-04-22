@@ -74,10 +74,10 @@ export default function Footer() {
             <FooterColumn
               title="Company"
               items={[
-                { name: "About Us", link: "/aboutUs" },
-                { name: "Projects", link: "/projects" },
+                { name: "About Us", link: "/about-us" },
+                { name: "Our Work", link: "/our-work" },
                 { name: "Blogs", link: "/blogs" },
-                { name: "Contact", link: "/contactUs" },
+                { name: "Contact Us", link: "/contact-us" },
               ]}
             />
 

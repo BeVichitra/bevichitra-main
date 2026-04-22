@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Play, X, Image as ImageIcon, Video } from "lucide-react";
-import SectionHeader from "../../ui/SectionHeader";
 import { projectImages } from "../../../data/projectImages";
 import { projectVideos } from "../../../data/projectVideos";
 
@@ -69,7 +68,7 @@ export default function ProjectData() {
               {/* IMAGE */}
               {item.type === "image" && (
                 <div
-                  onClick={() => router.push(`/projects/${item.slug}`)}
+                  onClick={() => router.push(`/our-work/${item.slug}`)}
                   className="relative"
                 >
                   <Image

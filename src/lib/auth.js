@@ -1,10 +1,7 @@
 import crypto from "crypto";
 
-const SECRET = process.env.AUTH_SECRET;
+const SECRET = process.env.AUTH_SECRET || "fallback_secret"
 
-if (!SECRET) {
-  throw new Error("❌ AUTH_SECRET is required");
-}
 
 // ✅ create signature
 export function sign(value) {
@@ -16,10 +13,16 @@ export function sign(value) {
 
 // ✅ secure compare (prevents timing attacks)
 export function verify(value, signature) {
-  const expected = sign(value);
+  try {
+    const expected = sign(value);
 
-  return crypto.timingSafeEqual(
-    Buffer.from(expected),
-    Buffer.from(signature)
-  );
+    if (!signature) return false;
+
+    return crypto.timingSafeEqual(
+      Buffer.from(expected),
+      Buffer.from(signature)
+    );
+  } catch {
+    return false;
+  }
 }

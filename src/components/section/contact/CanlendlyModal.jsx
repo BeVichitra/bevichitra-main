@@ -3,20 +3,17 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 
-export default function CalendlyModal({ open, setOpen }) {
+export default function CalendlyModal({ open, setOpen, name, email, message }) {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const checkTheme = () => {
-      setIsDark(
-        document.documentElement.classList.contains("dark")
-      );
+      setIsDark(document.documentElement.classList.contains("dark"));
     };
 
     checkTheme();
 
     const observer = new MutationObserver(checkTheme);
-
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["class"],
@@ -25,11 +22,21 @@ export default function CalendlyModal({ open, setOpen }) {
     return () => observer.disconnect();
   }, []);
 
+  // ✅ Correct Calendly URL
   const calendlySrc = useMemo(() => {
-    return isDark
-      ? "https://calendly.com/bevichitra1/30min?primary_color=286cb5&text_color=ffffff&background_color=0f172a&theme=dark"
-      : "https://calendly.com/bevichitra1/30min?primary_color=286cb5&text_color=0f172a&background_color=f8fafc";
-  }, [isDark]);
+    const base = "https://calendly.com/bevichitra1/30min";
+
+    const params = new URLSearchParams({
+      name: name || "",
+      email: email || "",
+      a1: message || "", // ✅ maps to your Question 1
+      primary_color: "286cb5",
+      text_color: isDark ? "ffffff" : "0f172a",
+      background_color: isDark ? "0f172a" : "f8fafc",
+    });
+
+    return `${base}?${params.toString()}`;
+  }, [isDark, name, email, message]);
 
   return (
     <AnimatePresence>
@@ -48,6 +55,7 @@ export default function CalendlyModal({ open, setOpen }) {
 
           {/* MODAL */}
           <motion.div
+            onClick={(e) => e.stopPropagation()}
             initial={{ scale: 0.94, opacity: 0, y: 30 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.94, opacity: 0, y: 30 }}
@@ -55,7 +63,7 @@ export default function CalendlyModal({ open, setOpen }) {
               duration: 0.3,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="relative w-full max-w-5xl h-[88vh] rounded-3xl overflow-hidden border border-[var(--glass-border)] bg-transparent backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.25)]"
+            className="relative w-full max-w-5xl h-[88vh] rounded-3xl overflow-hidden border border-[var(--glass-border)] backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.25)]"
           >
             {/* CLOSE BUTTON */}
             <button
@@ -64,6 +72,11 @@ export default function CalendlyModal({ open, setOpen }) {
             >
               ✕
             </button>
+
+            {/* UX HINT */}
+            <p className="absolute top-4 left-4 z-20 text-sm text-white/80">
+              Select a time to confirm your booking
+            </p>
 
             {/* CALENDLY */}
             <div className="w-full h-full rounded-3xl overflow-hidden">

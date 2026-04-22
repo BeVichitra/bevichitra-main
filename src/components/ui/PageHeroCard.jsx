@@ -33,6 +33,7 @@ export default function PageHeroCard({
                   width={400}
                   height={400}
                   className="w-full h-auto object-contain"
+                  priority
                 />
               </div>
             </div>
