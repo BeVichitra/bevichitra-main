@@ -22,7 +22,6 @@ export default function ProjectData() {
 
   return (
     <div className="min-h-screen py-10 px-4 md:px-6">
-
       {/* ================= FILTER ================= */}
       <div className="flex justify-center mb-12">
         <div className="flex rounded-full p-1 border border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-md shadow-[var(--shadow-soft)]">
@@ -59,10 +58,7 @@ export default function ProjectData() {
       {/* ================= GRID ================= */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filtered.map((item, index) => (
-          <div
-            key={index}
-            className="group cursor-pointer transition"
-          >
+          <div key={index} className="group cursor-pointer transition">
             {/* ================= CARD ================= */}
             <div className="relative overflow-hidden rounded-xl border border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-xl shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-hover)] hover:border-[var(--color-blue)] transition-all duration-300">
               {/* IMAGE */}
@@ -86,10 +82,12 @@ export default function ProjectData() {
                 <div className="relative aspect-video">
                   {playingVideo !== item.youtubeId ? (
                     <>
-                      <img
+                      <Image
                         src={`https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`}
                         alt={item.title}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 33vw"
                       />
 
                       <button
@@ -129,9 +127,7 @@ export default function ProjectData() {
               </h3>
 
               <p className="text-sm text-[var(--text-secondary)] transition group-hover:text-[var(--color-blue)]">
-                {item.type === "video"
-                  ? "Watch project →"
-                  : "View project →"}
+                {item.type === "video" ? "Watch project →" : "View project →"}
               </p>
             </div>
           </div>

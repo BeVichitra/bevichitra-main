@@ -5,6 +5,7 @@ import { testimonials } from "../../../data/testimonial";
 import SectionHeader from "../../ui/SectionHeader";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "@/components/ui/Reveal";
+import Image from "next/image";
 
 function QuoteIcon() {
   return (
@@ -86,10 +87,14 @@ export default function Testimonial() {
                 rel="noopener noreferrer"
                 className="mt-10 flex flex-col items-center group transition-all duration-300 hover:opacity-80"
               >
-                <img
+                <Image
                   src={testimonials[active].image}
                   alt={testimonials[active].name}
-                  className=" w-14 h-14 sm:w-20 sm:h-20  bg-[#FBF6F6] rounded-full object-cover border-4 border-[#FBF6F6] mb-4"
+                  width={80}
+                  height={80}
+                  className="w-14 h-14 sm:w-20 sm:h-20 bg-[#FBF6F6] rounded-full object-cover border-4 border-[#FBF6F6] mb-4"
+                  sizes="(max-width: 640px) 56px, 80px"
+                  loading="lazy"
                 />
 
                 <p className="text-base font-semibold text-[var(--text-primary)] font-[var(--font-heading)]">

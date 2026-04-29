@@ -1,98 +1,62 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 export default function Hero() {
-  const [isDark, setIsDark] = useState(false);
+  const { theme, resolvedTheme } = useTheme();
 
+  const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Fix hydration mismatch (VERY IMPORTANT)
   useEffect(() => {
-    const checkTheme = () => {
-      setIsDark(
-        document.documentElement.classList.contains("dark")
-      );
+    setMounted(true);
+  }, []);
+
+  // Detect screen size
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobile(window.innerWidth < 1024);
     };
 
-    checkTheme();
-
-    const observer = new MutationObserver(checkTheme);
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
   }, []);
+
+  if (!mounted) return null;
+
+  const isDark = (theme === "system" ? resolvedTheme : theme) === "dark";
+
+  // Select correct video
+  const videoSrc = isMobile
+    ? isDark
+      ? "/videos/HeroMobileDark.webm"
+      : "/videos/HeroMobileLight.webm"
+    : isDark
+    ? "/videos/HeroDesktopDark.webm"
+    : "/videos/HeroDesktopLight.webm";
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
-      {/* DESKTOP LIGHT */}
       <video
+        key={videoSrc} // forces reload when source changes
         autoPlay
         muted
         loop
         playsInline
-        preload="auto"
-        className={`hidden lg:block absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-          isDark ? "opacity-0" : "opacity-100"
-        }`}
+        preload="none"
+        poster="/images/hero-fallback.jpg"
+        className="absolute inset-0 w-full h-full object-cover"
       >
-        <source
-          src="/videos/HeroDesktopLight.webm"
-          type="video/webm"
-        />
+        <source src={videoSrc} type="video/webm" />
       </video>
 
-      {/* DESKTOP DARK */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className={`hidden lg:block absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-          isDark ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <source
-          src="/videos/HeroDesktopDark.webm"
-          type="video/webm"
-        />
-      </video>
-
-      {/* MOBILE LIGHT */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className={`block lg:hidden absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-          isDark ? "opacity-0" : "opacity-100"
-        }`}
-      >
-        <source
-          src="/videos/HeroMobileLight.webm"
-          type="video/webm"
-        />
-      </video>
-
-      {/* MOBILE DARK */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className={`block lg:hidden absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-          isDark ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <source
-          src="/videos/HeroMobileDark.webm"
-          type="video/webm"
-        />
-      </video>
+      {/* Optional overlay content */}
+      <div className="relative z-10">
+        {/* Your hero text / CTA */}
+      </div>
     </div>
   );
 }
