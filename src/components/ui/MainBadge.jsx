@@ -13,7 +13,6 @@ export default function MainBadge({
         bg-[var(--bg-secondary)]
         rounded-full
         border border-[var(--border)]
-        font-[var(--font-ui)]
         ${className}
       `}
     >

@@ -72,7 +72,7 @@ export default function WhatWeBelieve() {
         <Reveal key={item.title} delay={i * 0.15}>
           <div className="group p-6 rounded-2xl border border-[var(--glass-border)] bg-[var(--glass-bg)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.25)] cursor-pointer">
 
-            <p className="font-semibold text-[var(--text-primary)] font-[var(--font-heading)]">
+            <p className="font-bold text-[var(--text-primary)]">
               {item.title}
             </p>
 

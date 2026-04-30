@@ -69,6 +69,7 @@ export default function TeamSection() {
                     alt={member.name}
                     width={300}
                     height={300}
+                    quality={70}
                     className="object-contain object-top scale-[1.15]"
                   />
                 </div>

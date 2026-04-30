@@ -47,7 +47,7 @@ export default function ServicesSection() {
             <Reveal key={service.title} delay={i * 0.1}>
               <div className="group rounded-3xl border border-[var(--glass-border)] bg-[var(--glass-bg)] p-6 md:p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.25)] cursor-pointer">
                 {/* TITLE */}
-                <h3 className="text-lg md:text-xl font-semibold text-[var(--text-primary)] font-[var(--font-heading)]">
+                <h3 className="text-lg md:text-xl font-bold text-[var(--text-primary)] ">
                   {service.title}
                 </h3>
 

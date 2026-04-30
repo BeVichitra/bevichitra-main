@@ -74,6 +74,7 @@ export default function ProjectData() {
                   <Image
                     src={item.cover}
                     alt={item.title}
+                    quality={70}
                     width={800}
                     height={1000}
                     loading="lazy"
@@ -93,6 +94,7 @@ export default function ProjectData() {
                         alt={item.title}
                         fill
                         className="object-cover"
+                        quality={70}
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />
 

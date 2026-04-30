@@ -35,6 +35,7 @@ export default function ShowProjectData() {
                 alt="fillip Project"
                 width={800}
                 height={500}
+                quality={70}
                 className="w-full h-full object-cover"
               />
             </div>

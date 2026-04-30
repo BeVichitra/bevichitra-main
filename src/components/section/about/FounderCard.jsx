@@ -17,17 +17,17 @@ export default function FounderCard() {
                   fill
                   className="object-contain object-bottom"
                   sizes="(max-width: 768px) 100vw, 40vw"
-                  priority
+                  quality={70}
                 />
               </div>
 
               {/* CONTENT */}
               <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-[var(--text-secondary)] font-[var(--font-ui)]">
+                <p className="text-xs uppercase tracking-[0.3em] text-[var(--text-secondary)]">
                   From the Founder
                 </p>
 
-                <p className="mt-4 text-xl md:text-2xl font-medium text-[var(--text-primary)] leading-relaxed font-[var(--font-heading)]">
+                <p className="mt-4 text-xl md:text-2xl font-medium text-[var(--text-primary)] leading-relaxed ">
                   “I’ve seen founders struggle not because they lack vision, but
                   because they lack a system that brings that vision to life
                   consistently.”

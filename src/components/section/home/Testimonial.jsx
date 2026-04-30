@@ -95,6 +95,7 @@ export default function Testimonial() {
                   className="w-14 h-14 sm:w-20 sm:h-20 bg-[#FBF6F6] rounded-full object-cover border-4 border-[#FBF6F6] mb-4"
                   sizes="(max-width: 640px) 56px, 80px"
                   loading="lazy"
+                  quality={70}
                 />
 
                 <p className="text-base font-semibold text-[var(--text-primary)] font-[var(--font-heading)]">

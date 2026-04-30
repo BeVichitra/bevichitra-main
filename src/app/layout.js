@@ -10,21 +10,26 @@ import Script from "next/script";
 
 const wildborn = localFont({
   src: "../../public/fonts/wildborn-Black.woff2",
+  display: "swap",
+  preload: true,
   variable: "--font-logo",
 });
 
-const fredokaLight = localFont({
-  src: "../../public/fonts/Fredoka-Light.ttf",
-  variable: "--font-ui",
-});
-
-const fredokaBold = localFont({
-  src: "../../public/fonts/Fredoka-Bold.ttf",
-  variable: "--font-heading",
-});
-
-const fredokaRegular = localFont({
-  src: "../../public/fonts/Fredoka-Regular.ttf",
+const fredoka = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Fredoka-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Fredoka-Medium.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  display: "swap", // CRITICAL
+  preload: true,   // CRITICAL
   variable: "--font-body",
 });
 
@@ -55,7 +60,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${wildborn.variable} ${fredokaLight.variable} ${fredokaBold.variable} ${fredokaRegular.variable}`}
+      className={`${wildborn.variable} ${fredoka.variable}}`}
       suppressHydrationWarning
     >
       <body>

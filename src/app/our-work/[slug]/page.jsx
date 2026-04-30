@@ -93,6 +93,7 @@ export default async function ProjectPage({ params }) {
               width={600}
               height={400}
               priority
+              quality={70}
               sizes="(max-width: 768px) 100vw, 50vw"
               className="w-full h-full object-cover"
             />
@@ -167,6 +168,7 @@ export default async function ProjectPage({ params }) {
               alt={`${project.title} ${i}`}
               width={800}
               height={1000}
+              quality={70}
               className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
               loading="lazy"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -191,6 +193,7 @@ export default async function ProjectPage({ params }) {
                   alt={`${project.title} extra ${i}`}
                   width={800}
                   height={1000}
+                  quality={70}
                   loading="lazy"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-full object-cover"

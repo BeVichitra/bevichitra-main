@@ -22,6 +22,7 @@ export default function Footer() {
                   alt="Logo"
                   width={28}
                   height={28}
+                  loading="lazy"
                 />
 
                 <h2

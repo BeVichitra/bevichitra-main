@@ -87,6 +87,7 @@ export default function BookCallCard() {
                         alt="You"
                         width={32}
                         height={32}
+                        quality={70}
                         className="rounded-full"
                       />
 

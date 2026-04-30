@@ -19,7 +19,7 @@ export default function OurPhilosophy() {
 
           {/* LINE 1 */}
           <Reveal delay={0.1}>
-            <p className="text-2xl sm:text-3xl md:text-4xl font-medium text-[var(--text-secondary)] leading-tight">
+            <p className="text-2xl sm:text-3xl md:text-4xl text-[var(--text-secondary)] leading-tight">
               Be normal,
               <span className="block">and you’ll be ignored.</span>
             </p>
@@ -27,7 +27,7 @@ export default function OurPhilosophy() {
 
           {/* LINE 2 */}
           <Reveal delay={0.25}>
-            <p className="text-2xl sm:text-3xl md:text-4xl font-medium text-[var(--text-secondary)] leading-tight opacity-80">
+            <p className="text-2xl sm:text-3xl md:text-4xl text-[var(--text-secondary)] leading-tight opacity-80">
               Be different,
               <span className="block">and you’ll be noticed.</span>
             </p>
@@ -35,7 +35,7 @@ export default function OurPhilosophy() {
 
           {/* FINAL LINE */}
           <Reveal delay={0.4}>
-            <p className="text-2xl sm:text-4xl md:text-5xl font-semibold leading-tight text-[var(--text-primary)]">
+            <p className="text-2xl sm:text-4xl md:text-5xl font-bold leading-tight text-[var(--text-primary)]">
               Be Vichitra,
               <span className="block mt-2 text-[var(--color-yellow)]">
                 and you’ll be remembered.

@@ -46,6 +46,7 @@ export default function ServiceCardItem({service}) {
             alt={service.title}
             width={26}
             height={26}
+            quality={70}
             className={"dark:invert transition-all duration-300"}
           />
         </div>

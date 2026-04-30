@@ -46,11 +46,8 @@
   --shadow-soft: 0 15px 50px rgba(0, 0, 0, 0.12);
   --shadow-hover: 0 18px 40px rgba(0, 0, 0, 0.16);
 
-   --font-logo: "wildborn", sans-serif;
-  --font-body: "fredokaLight",sans-serif;
-  --font-heading: "fredokaBold",sans-serif;
-  --font-ui: "fredokaRegular",sans-serif;
-  --font-default: var(--font-body);
+  --font-logo: "wildborn", sans-serif;
+  --font-body: "fredoka",sans-serif;
 }
 
 /* ================= DARK THEME ================= */
@@ -89,7 +86,7 @@ body {
 background: var(--bg-main);
 color: var(--text-primary);
 transition: background 0.3s ease, color 0.3s ease;
-font-family: var(--font-default);
+font-family: var(--font-body);
 
 }
 
