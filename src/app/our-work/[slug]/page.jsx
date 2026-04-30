@@ -20,12 +20,12 @@ export async function generateMetadata({ params }) {
   // ✅ Ensure absolute + safe image
   let imagePath = project.cover || "/images/URLimages/LogoIcon.jpg";
 
-// 🔥 convert .webp → .jpg for OG
-imagePath = imagePath.replace(".webp", ".jpg");
+  // 🔥 convert .webp → .jpg for OG
+  imagePath = imagePath.replace(".webp", ".jpg");
 
-const imageUrl = `${baseUrl}${imagePath}`;
-console.log(imageUrl)
-console.log(imagePath)
+  const imageUrl = `${baseUrl}${imagePath}`;
+  console.log(imageUrl);
+  console.log(imagePath);
 
   return {
     title: `${project.title} | BeVichitra Projects`,
@@ -66,8 +66,8 @@ export default async function ProjectPage({ params }) {
   const project = projectImages.find((p) => p.slug === slug);
   if (!project) return notFound();
 
-  const featuredImages = project.images.slice(0, 6);
-  const remainingImages = project.images.slice(6);
+  const featuredImages = project.images.slice(0, 4);
+  const remainingImages = project.images.slice(4);
 
   return (
     <div className="max-w-6xl mx-auto px-4 md:px-6 pt-32 pb-24">
@@ -92,6 +92,8 @@ export default async function ProjectPage({ params }) {
               alt={project.title}
               width={600}
               height={400}
+              priority
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="w-full h-full object-cover"
             />
           </div>
@@ -166,6 +168,8 @@ export default async function ProjectPage({ params }) {
               width={800}
               height={1000}
               className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         ))}
@@ -179,7 +183,7 @@ export default async function ProjectPage({ params }) {
           <div className="grid md:grid-cols-2 gap-8">
             {remainingImages.map((img, i) => (
               <div
-                key={i}
+                key={img}
                 className="rounded-xl overflow-hidden border border-[var(--glass-border)] group"
               >
                 <Image
@@ -187,7 +191,9 @@ export default async function ProjectPage({ params }) {
                   alt={`${project.title} extra ${i}`}
                   width={800}
                   height={1000}
-                  className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="w-full h-full object-cover"
                 />
               </div>
             ))}

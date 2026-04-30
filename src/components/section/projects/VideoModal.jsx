@@ -52,6 +52,7 @@ export default function VideoModal({ videoId, close }) {
             title="Project video preview"
             className="w-full h-full"
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+            loading="lazy"
             allow="autoplay; encrypted-media"
             allowFullScreen
           />

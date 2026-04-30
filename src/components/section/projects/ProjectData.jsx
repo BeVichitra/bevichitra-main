@@ -18,7 +18,9 @@ export default function ProjectData() {
     ...projectVideos.map((v) => ({ ...v, type: "video" })),
   ];
 
-  const filtered = allProjects.filter((item) => item.type === filter);
+  const filtered = allProjects
+    .filter((item) => item.type === filter)
+    .slice(0, 6);
 
   return (
     <div className="min-h-screen py-10 px-4 md:px-6">
@@ -58,7 +60,9 @@ export default function ProjectData() {
       {/* ================= GRID ================= */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filtered.map((item, index) => (
-          <div key={index} className="group cursor-pointer transition">
+          <div
+            key={item.slug || item.youtubeId}
+            className="group cursor-pointer transition">
             {/* ================= CARD ================= */}
             <div className="relative overflow-hidden rounded-xl border border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-xl shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-hover)] hover:border-[var(--color-blue)] transition-all duration-300">
               {/* IMAGE */}
@@ -72,6 +76,8 @@ export default function ProjectData() {
                     alt={item.title}
                     width={800}
                     height={1000}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover w-full h-full transition duration-500 group-hover:scale-105"
                   />
                 </div>
@@ -104,6 +110,7 @@ export default function ProjectData() {
                       <iframe
                         className="w-full h-full"
                         src={`https://www.youtube.com/embed/${item.youtubeId}?autoplay=1&rel=0`}
+                        loading="lazy"
                         allow="autoplay; encrypted-media"
                         allowFullScreen
                       />
