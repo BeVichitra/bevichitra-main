@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import MainBadge from "./MainBadge";
-import Reveal from "./Reveal";
 
 export default function PageHeroCard({
   title,
@@ -13,7 +12,6 @@ export default function PageHeroCard({
 }) {
   return (
     <section className="px-4 sm:px-6 pt-28 pb-16">
-      <Reveal>
         <div className="max-w-6xl mx-auto">
           <div className="rounded-3xl border border-[var(--border)] bg-[var(--bg-elevated)] p-6 sm:p-10 md:p-12">
             <div
@@ -31,6 +29,7 @@ export default function PageHeroCard({
                     height={400}
                     quality={70}
                     priority
+                    fetchPriority="high"
                     sizes="(max-width: 768px) 220px, (max-width: 1024px) 260px, 300px"
                     className="w-full h-auto object-contain"
                   />
@@ -52,7 +51,6 @@ export default function PageHeroCard({
             </div>
           </div>
         </div>
-      </Reveal>
     </section>
   );
 }

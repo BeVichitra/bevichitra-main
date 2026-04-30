@@ -6,7 +6,7 @@ export default function FounderCard() {
     <section className="py-10 md:py-18 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <Reveal>
-          <div className="rounded-3xl border border-[var(--glass-border)] bg-[var(--glass-bg)] p-8 md:p-12">
+          <div className="rounded-3xl border border-[var(--glass-border)] bg-[var(--glass-bg)] px-8 py-6 md:px-12 md:py-8">
             <div className="grid lg:grid-cols-[0.7fr_1.3fr] gap-10 items-center">
               
               {/* IMAGE */}
@@ -15,6 +15,7 @@ export default function FounderCard() {
                   src="/images/team/RahulPrajapati.webp"
                   alt="Rahul Prajapati"
                   fill
+                  loading="lazy"
                   className="object-contain object-bottom"
                   sizes="(max-width: 768px) 100vw, 40vw"
                   quality={70}
