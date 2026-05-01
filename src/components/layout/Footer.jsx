@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
@@ -5,24 +7,32 @@ import { social } from "@/data/social";
 
 export default function Footer() {
   return (
-    <footer className="mt-32">
-      {" "}
+    <footer className="mt-20">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        {/* ================= MAIN ================= */}
-        <div className="relative rounded-3xl mb-10 border border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-xl p-10 md:p-14 shadow-[0_10px_40px_rgba(0,0,0,0.08)] overflow-hidden">
-          {/* SUBTLE GLOW */}
+        {/* MAIN */}
+        <div className="relative rounded-3xl mb-8 border border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-xl p-10 md:p-14 shadow-[0_10px_40px_rgba(0,0,0,0.08)] overflow-hidden">
+          {/* Glow */}
           <div className="absolute -top-20 -left-20 w-[250px] h-[250px] bg-[var(--glow-blue)] blur-[120px] opacity-20 pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 relative z-10">
             {/* BRAND */}
             <div className="space-y-6">
-              <div className="flex items-center gap-1">
+              <Link
+                href="/"
+                onClick={(e) => {
+                  if (window.location.pathname === "/") {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
+                className="flex items-center gap-1"
+              >
                 <Image
                   src="/images/logoIcon.webp"
-                  alt="Logo"
+                  alt="Bevichitra Logo"
                   width={28}
                   height={28}
-                  loading="lazy"
+                  priority
                 />
 
                 <h2
@@ -31,7 +41,7 @@ export default function Footer() {
                 >
                   vichitra
                 </h2>
-              </div>
+              </Link>
 
               <p className="text-sm leading-relaxed text-[var(--text-secondary)] max-w-sm">
                 Crafting modern digital products that help brands grow, scale,
@@ -41,7 +51,7 @@ export default function Footer() {
               {/* SOCIAL */}
               <div className="flex gap-3 pt-2">
                 {social.map((item) => {
-                  const Icon = item.name;
+                  const Icon = item.icon;
 
                   return (
                     <a
@@ -49,7 +59,17 @@ export default function Footer() {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-md hover:text-[var(--color-blue)] hover:shadow-[0_0_15px_rgba(40,108,181,0.2)] transition"
+                      aria-label={item.label}
+                      className={`
+          w-9 h-9 flex items-center justify-center rounded-xl
+          border border-[var(--glass-border)]
+          bg-[var(--glass-bg)] backdrop-blur-md
+          ${item.color}
+          transition
+          ${item.bgHover}
+          hover:text-white
+          hover:shadow-[0_0_12px_currentColor]
+        `}
                     >
                       <Icon size={16} />
                     </a>
@@ -58,7 +78,7 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* SERVICES */}
+            {/* SERVICES (NOT CLICKABLE) */}
             <FooterColumn
               title="Services"
               items={[
@@ -92,10 +112,10 @@ export default function Footer() {
                 <li className="flex gap-3 items-start">
                   <Mail size={16} />
                   <a
-                    href="mailto:contact.bevichitra@gmail.com"
+                    href="mailto:hello@bevichitra.com"
                     className="hover:text-[var(--color-yellow)] transition"
                   >
-                    contact.bevichitra@gmail.com
+                    hello@bevichitra.com
                   </a>
                 </li>
 
@@ -117,10 +137,10 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ================= DIVIDER ================= */}
+          {/* DIVIDER */}
           <div className="border-t border-[var(--border)] my-12 relative z-10" />
 
-          {/* ================= BOTTOM ================= */}
+          {/* BOTTOM */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-[var(--text-secondary)] relative z-10">
             <p>
               © {new Date().getFullYear()}{" "}
@@ -132,13 +152,13 @@ export default function Footer() {
 
             <div className="flex gap-6">
               <Link
-                href="#"
+                href="/privacy-policy"
                 className="hover:text-[var(--color-blue)] transition"
               >
                 Privacy Policy
               </Link>
               <Link
-                href="#"
+                href="/terms"
                 className="hover:text-[var(--color-blue)] transition"
               >
                 Terms
@@ -155,22 +175,28 @@ export default function Footer() {
 function FooterColumn({ title, items }) {
   return (
     <div>
-      {" "}
       <h3 className="text-sm font-semibold tracking-wide uppercase text-[var(--text-primary)] mb-5">
-        {title}{" "}
+        {title}
       </h3>
+
       <ul className="space-y-3 text-sm text-[var(--text-secondary)]">
         {items.map((item, i) => {
-          const name = typeof item === "string" ? item : item.name;
-          const link = typeof item === "string" ? "#" : item.link;
+          if (typeof item === "string") {
+            // Non-clickable (correct UX)
+            return (
+              <li key={i}>
+                <span className="cursor-default">{item}</span>
+              </li>
+            );
+          }
 
           return (
             <li key={i}>
               <Link
-                href={link}
+                href={item.link}
                 className="hover:text-[var(--color-blue)] transition"
               >
-                {name}
+                {item.name}
               </Link>
             </li>
           );

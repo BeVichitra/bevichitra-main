@@ -1,10 +1,10 @@
-import Hero from "../components/section/home/Hero";
-import ShowProjectData from "../components/section/home/projects/ShowProjectData";
-import Services from "../components/section/home/services/Services";
-import CollaborativeApproach from "../components/section/home/CollaborativeApproach";
-import FAQ from "../components/section/home/FAQ";
-import Testimonial from "../components/section/home/Testimonial";
-import BookCallCard from "../components/ui/BookCallCard";
+import Hero from "@/components/section/home/Hero";
+import ShowProjectData from "@/components/section/home/projects/ShowProjectData";
+import Services from "@/components/section/home/services/Services";
+import CollaborativeApproach from "@/components/section/home/CollaborativeApproach";
+import FAQ from "@/components/section/home/FAQ";
+import Testimonial from "@/components/section/home/Testimonial";
+import BookCallCard from "@/components/ui/BookCallCard";
 
 export const metadata = {
   title: "Bevichitra | Creative Digital Agency for Brand Identity & Web Design",

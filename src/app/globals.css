@@ -46,8 +46,6 @@
   --shadow-soft: 0 15px 50px rgba(0, 0, 0, 0.12);
   --shadow-hover: 0 18px 40px rgba(0, 0, 0, 0.16);
 
-  --font-logo: "wildborn", sans-serif;
-  --font-body: "fredoka",sans-serif;
 }
 
 /* ================= DARK THEME ================= */
@@ -82,11 +80,14 @@ scrollbar-gutter: stable;
 scroll-behavior: smooth;
 }
 
+html.theme-transition * {
+  transition: background 0.1s ease, color 0.1s ease;
+}
+
 body {
 background: var(--bg-main);
 color: var(--text-primary);
-transition: background 0.3s ease, color 0.3s ease;
-font-family: var(--font-body);
+font-family: var(--font-body), sans-serif;
 
 }
 
@@ -104,7 +105,7 @@ scrollbar-width: none;
 /* Glass */
 .glass {
 background: var(--glass-bg);
-backdrop-filter: blur(20px);
+backdrop-filter: blur(10px);
 border: 1px solid var(--glass-border);
 box-shadow: var(--shadow-soft);
 }
@@ -123,35 +124,11 @@ background: var(--gradient-soft);
 }
 
 /* ================= ANIMATIONS ================= */
-@keyframes slideLeft {
-from {
-transform: translateX(40px);
-opacity: 0;
-}
-to {
-transform: translateX(0);
-opacity: 1;
-}
-}
 
-@keyframes slideRight {
-from {
-transform: translateX(-40px);
-opacity: 0;
-}
-to {
-transform: translateX(0);
-opacity: 1;
-}
-}
 
-.animate-slide-left {
-animation: slideLeft 0.4s ease forwards;
-}
 
-.animate-slide-right {
-animation: slideRight 0.4s ease forwards;
-}
+
+
 
 /* ================= 3D ================= */
 .transform-style-preserve-3d {

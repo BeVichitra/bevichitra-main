@@ -1,5 +1,5 @@
 
-import ProjectData from "../../components/section/projects/ProjectData";
+import ProjectData from "@/components/section/projects/ProjectData";
 import PageHeroCard from "@/components/ui/PageHeroCard";
 
 export const metadata = {

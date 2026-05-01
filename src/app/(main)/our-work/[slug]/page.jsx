@@ -1,7 +1,7 @@
-import { projectImages } from "../../../data/projectImages";
+import { projectImages } from "@/data/projectImages";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Button from "../../../components/ui/Button";
+import Button from "@/components/ui/Button";
 import Link from "next/link";
 
 const baseUrl = "https://bevichitra.com";

@@ -2,6 +2,7 @@
 import PageHeroCard from "@/components/ui/PageHeroCard";
 import ContactFaq from "@/components/section/contact/ContactFaq";
 import ContactCard from "./ContactCard";
+import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
 
 export default function ContactClient() {
   
@@ -21,6 +22,7 @@ export default function ContactClient() {
       {/* FAQ BLOCK */}
       <ContactFaq/>
     </section>
+     <FloatingWhatsApp />
     </>
     
   );

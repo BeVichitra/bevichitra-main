@@ -1,5 +1,5 @@
-import clientPromise from "../../lib/mongodb";
-import BlogCard from "../../components/section/blog/BlogCard";
+import clientPromise from "@/lib/mongodb";
+import BlogCard from "@/components/section/blog/BlogCard";
 import PageHeroCard from "@/components/ui/PageHeroCard";
 import Image from "next/image";
 import Link from "next/link";
