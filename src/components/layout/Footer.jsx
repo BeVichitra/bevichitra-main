@@ -17,15 +17,11 @@ export default function Footer() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-14 relative z-10">
             {/* BRAND */}
             <div className="space-y-6">
-              <Link
-                href="/"
-                onClick={(e) => {
-                  if (window.location.pathname === "/") {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }
+              <div
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="flex items-center gap-1"
+                className="flex items-center gap-1 cursor-pointer"
               >
                 <Image
                   src="/images/logoIcon.webp"
@@ -41,7 +37,7 @@ export default function Footer() {
                 >
                   vichitra
                 </h2>
-              </Link>
+              </div>
 
               <p className="text-sm leading-relaxed text-[var(--text-secondary)] max-w-sm">
                 Crafting modern digital products that help brands grow, scale,
