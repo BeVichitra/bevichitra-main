@@ -1,36 +1,19 @@
-import BackgroundShapes from "@/components/card/BackgroundShapes";
 import CardHero from "@/components/card/CardHero";
+import Footer from "@/components/card/Footer";
 import SocialLinks from "@/components/card/SocialLinks";
-import Thankyou from "@/components/card/Thankyou";
-import WhatsappCTA from "@/components/card/WhatsappCTA";
 
-export default function CardPage() {
+export default function Page() {
   return (
-    <main className="relative min-h-screen bg-[#0b1d2a] text-white flex items-center justify-center px-6 py-10">
-      <BackgroundShapes />
-
-      <div className="w-full max-w-xl">
+    <div className="
+      min-h-screen
+      bg-[radial-gradient(circle_at_top,_#fef9c3,_#ecfeff_60%,_#eef2ff)]
+      text-gray-800
+    ">
+      <div className="max-w-4xl mx-auto px-4 py-10">
         <CardHero />
-
-        <p className="text-center mt-10 text-cyan-400 tracking-widest text-sm">
-          ✦ CONNECT WITH ME ✦
-        </p>
-
-        <SocialLinks />
-        <div className="flex items-center gap-4 my-10">
-          <div className="flex-1 border-t border-dashed border-yellow-400/40"></div>
-
-          <span className="text-red-400 text-lg">★</span>
-
-          <div className="flex-1 border-t border-dashed border-yellow-400/40"></div>
-        </div>
-        <WhatsappCTA />
-        <Thankyou />
-        <p className="text-center text-xs text-gray-500 mt-4">
-        © 2026 be vichitra • All Rights Reserved
-      </p>
+        <SocialLinks/>
+        <Footer/>
       </div>
-      
-    </main>
+    </div>
   );
 }

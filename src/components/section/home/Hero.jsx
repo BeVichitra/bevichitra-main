@@ -35,8 +35,8 @@ export default function Hero() {
       ? "/videos/HeroMobileDark.webm"
       : "/videos/HeroMobileLight.webm"
     : isDark
-    ? "/videos/HeroDesktopDark.webm"
-    : "/videos/HeroDesktopLight.webm";
+    ? "/videos/HeroMain.webm"
+    : "/videos/HeroMain.webm";
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden">

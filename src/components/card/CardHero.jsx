@@ -1,42 +1,45 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CardHero() {
   return (
-    <div className="text-center">
-      {/* Avatar */}
-      <div className="relative mx-auto w-24 h-24">
-        <div className="w-full h-full bg-yellow-400 rounded-full flex items-center justify-center text-2xl">
-          <Image
-            src="/images/logoIcon.webp"
-            alt="BeVichitra"
-            width={78}
-            height={78}
-            priority
-          />
-        </div>
+    <div className="text-center mb-10">
+      {/* Logo */}
+      <div
+        className=" mx-auto rounded-2xl 
+        flex items-center justify-center"
+      >
+        <Link href="/" className="group flex items-center gap-1 cursor-pointer">
+          <div className="transition-transform duration-300 group-hover:-rotate-90">
+            
+            <Image
+              src="/images/logoIcon.webp"
+              alt="BeVichitra"
+              width={60}
+              height={60}
+              priority
+              className="w-11 h-10 md:w-[60px] md:h-[55px]"
+            />
+          </div>
 
-        <div className="absolute top-0 right-0 w-4 h-4 bg-green-400 rounded-full border-2 border-black animate-pulse" />
+          <h2
+            style={{ fontFamily: "var(--font-logo)" }}
+            className="text-4xl sm:text-5xl tracking-wider"
+          >
+            vichitra
+          </h2>
+        </Link>
       </div>
 
-      {/* Name */}
-      <h1
-        className="mt-6 text-4xl md:text-5xl font-extrabold text-white tracking-wide"
-        style={{ fontFamily: "var(--font-logo)" }}
-      >
-        Bevichitra
-      </h1>
-
       {/* Subtitle */}
-      <p className="text-yellow-400 mt-2 text-sm tracking-widest">
-        Think Vichitra. Be Vichitra
-      </p>
+      <p className="text-gray-500 mt-2 text-sm sm:text-md">Think Vichitra. Be Vichitra</p>
 
-      {/* Availability */}
-      <div className="mt-4 inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/10 backdrop-blur">
-        <span className="w-2 h-2 bg-green-400 rounded-full"></span>
-        <span className="text-sm text-green-300">
-          Available for opportunities
-        </span>
+      {/* Dots */}
+      <div className="flex justify-center gap-2 mt-3">
+        <span className="w-2 h-2 bg-pink-300 rounded-full" />
+        <span className="w-2 h-2 bg-yellow-300 rounded-full" />
+        <span className="w-2 h-2 bg-cyan-300 rounded-full" />
+        <span className="w-2 h-2 bg-purple-300 rounded-full" />
       </div>
     </div>
   );
