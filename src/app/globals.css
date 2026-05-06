@@ -151,3 +151,140 @@ perspective: 1500px;
 iframe::-webkit-scrollbar {
 display: none;
 }
+
+
+/* Card Dots */
+
+@keyframes pulseDots {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateY(-6px) scale(1.35);
+    opacity: 1;
+  }
+}
+
+.animate-pulseDots {
+  animation: pulseDots 1.4s ease-in-out infinite;
+}
+
+
+/* =========================
+   FLOATING PARTICLES
+========================= */
+
+.floating-dot,
+.floating-dot-2 {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 0;
+}
+
+/* MAIN DOT */
+.floating-dot {
+  width: 8px;
+  height: 8px;
+
+  top: 50%;
+  left: 50%;
+
+  background: var(--dot-color);
+
+  box-shadow:
+    0 0 12px var(--dot-color),
+    0 0 24px var(--dot-color),
+    0 0 40px var(--dot-color);
+
+  animation: floatOrbit 8s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+/* SECOND DOT */
+.floating-dot-2 {
+  width: 5px;
+  height: 5px;
+
+  top: 30%;
+  left: 40%;
+
+  background: var(--dot-color);
+
+  box-shadow:
+    0 0 10px var(--dot-color),
+    0 0 20px var(--dot-color);
+
+  animation: floatOrbitTwo 11s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+/* =========================
+   ANIMATION 1
+========================= */
+
+@keyframes floatOrbit {
+  0% {
+    transform: translate(0px, 0px) scale(0.3);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.9;
+  }
+
+  25% {
+    transform: translate(80px, -50px) scale(1);
+  }
+
+  50% {
+    transform: translate(-120px, -100px) scale(1.2);
+  }
+
+  75% {
+    transform: translate(-70px, 90px) scale(0.8);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   ANIMATION 2
+========================= */
+
+@keyframes floatOrbitTwo {
+  0% {
+    transform: translate(0px, 0px) scale(0.2);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.7;
+  }
+
+  40% {
+    transform: translate(-90px, 70px) scale(1);
+  }
+
+  65% {
+    transform: translate(100px, -80px) scale(1.1);
+  }
+
+  85% {
+    transform: translate(40px, 80px) scale(0.7);
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(0.2);
+    opacity: 0;
+  }
+}

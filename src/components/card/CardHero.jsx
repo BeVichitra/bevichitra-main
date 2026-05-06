@@ -11,7 +11,6 @@ export default function CardHero() {
       >
         <Link href="/" className="group flex items-center gap-1 cursor-pointer">
           <div className="transition-transform duration-300 group-hover:-rotate-90">
-            
             <Image
               src="/images/logoIcon.webp"
               alt="BeVichitra"
@@ -32,14 +31,33 @@ export default function CardHero() {
       </div>
 
       {/* Subtitle */}
-      <p className="text-gray-500 mt-2 text-sm sm:text-md">Think Vichitra. Be Vichitra</p>
+      <p className="text-gray-500 mt-2 text-sm sm:text-md">
+        Think Vichitra. Be Vichitra
+      </p>
 
       {/* Dots */}
-      <div className="flex justify-center gap-2 mt-3">
-        <span className="w-2 h-2 bg-pink-300 rounded-full" />
-        <span className="w-2 h-2 bg-yellow-300 rounded-full" />
-        <span className="w-2 h-2 bg-cyan-300 rounded-full" />
-        <span className="w-2 h-2 bg-purple-300 rounded-full" />
+      <div className="flex justify-center gap-2 mt-4">
+        {[0, 1, 2, 3].map((i) => (
+          <span
+            key={i}
+            className={`
+        w-2.5 h-2.5 rounded-full
+        animate-pulseDots
+        ${
+          i === 0
+            ? "bg-pink-300"
+            : i === 1
+              ? "bg-yellow-300"
+              : i === 2
+                ? "bg-cyan-300"
+                : "bg-purple-300"
+        }
+      `}
+            style={{
+              animationDelay: `${i * 0.2}s`,
+            }}
+          />
+        ))}
       </div>
     </div>
   );
